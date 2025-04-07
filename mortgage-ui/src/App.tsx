@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Login from './components/Login';
-import Landing from './components/Landing';
+import MortgageCalculator from './components/MortgageCalculator';
 import './App.css';
 
 function App() {
@@ -19,22 +19,20 @@ function App() {
         <Routes>
           <Route
             path="/"
-            element={
-              isLoggedIn ? (
-                <Navigate to="/landing" />
-              ) : (
-                <Login onLogin={handleLogin} />
-              )
-            }
+            element={<Login onLogin={handleLogin} />}
           />
           <Route
             path="/landing"
-            element={isLoggedIn ? <Landing user={username} /> : <Navigate to="/" />}
+            element={isLoggedIn ? <Navigate to="/calculator" /> : <Navigate to="/" />}
           />
+          <Route
+            path="/calculator"
+            element={isLoggedIn ? <MortgageCalculator /> : <Navigate to="/" />}
+          />
+
         </Routes>
       </div>
     </Router>
   );
 }
-
 export default App;

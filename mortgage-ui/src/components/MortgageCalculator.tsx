@@ -26,36 +26,35 @@ const MortgageCalculator: React.FC<MortgageCalculatorProps> = () => {
   };
 
   return (
-    <div>
-      <div>
-        <label htmlFor="loanAmount">Loan Amount:</label>
-        <input
-          type="number"
-          id="loanAmount"
-          value={loanAmount}
-          onChange={handleLoanAmountChange}
-        />
+    <div className="container mt-5">
+      <h2 className="mb-3">Mortgage Calculator</h2>
+      <div className="mb-3">
+        <label htmlFor="loanAmount" className="form-label">
+          Loan Amount:
+        </label>
+        <input type="number" className="form-control" id="loanAmount" value={loanAmount} onChange={handleLoanAmountChange} />
       </div>
-      <div>
-        <label htmlFor="interestRate">Interest Rate:</label>
-        <input
-          type="number"
-          id="interestRate"
-          value={interestRate}
-          onChange={handleInterestRateChange}
-        />
+      <div className="mb-3">
+        <label htmlFor="interestRate" className="form-label">
+          Interest Rate:
+        </label>
+        <input type="number" className="form-control" id="interestRate" value={interestRate} onChange={handleInterestRateChange} />
       </div>
-      <div>
-        <label htmlFor="loanTerm">Loan Term (Years):</label>
-        <input
-          type="number"
-          id="loanTerm"
-          value={loanTerm}
-          onChange={handleLoanTermChange}
-        />
+      <div className="mb-3">
+        <label htmlFor="loanTerm" className="form-label">
+          Loan Term (Years):
+        </label>
+        <input type="number" className="form-control" id="loanTerm" value={loanTerm} onChange={handleLoanTermChange} />
       </div>
-      <button onClick={handleCalculateClick}>Calculate</button>
-      {calculationResult && <p>{calculationResult}</p>}
+      <button className="btn btn-primary" onClick={handleCalculateClick}>
+        Calculate
+      </button>
+      {calculationResult && (
+        <div className="mt-3">
+          <strong>Calculation Result:</strong>
+          <p>{calculationResult}</p>
+        </div>
+      )}
     </div>
   );
 };
